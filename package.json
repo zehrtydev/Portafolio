@@ -5,8 +5,8 @@
   "description": "Portafolio profesional de Manuel Amado — Desarrollador Frontend & Especialista en UI/UX",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "npx vite build",
+    "preview": "npx vite preview"
   },
   "dependencies": {
     "vite": "^6.3.1"
