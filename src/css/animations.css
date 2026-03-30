@@ -1,0 +1,208 @@
+/**
+ * ============================================================================
+ * ANIMATIONS — Portafolio Manuel Amado
+ * ============================================================================
+ * 
+ * Definiciones de keyframes, clases de scroll reveal y transiciones.
+ * Todas las animaciones siguen la especificación: 300-500ms, ease-out.
+ * ============================================================================
+ */
+
+/* ========================================================================
+   KEYFRAMES — Animaciones base reutilizables
+   ======================================================================== */
+
+/* ── Fade In — opacity 0 → 1 ── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Slide Up — translateY(20px) → 0 + fade ── */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Slide In desde la izquierda ── */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── Slide In desde la derecha ── */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── Scale In — para elementos que crecen al aparecer ── */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Pulse suave — para indicadores de estado ── */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ========================================================================
+   SCROLL REVEAL — Elementos que se animan al entrar en viewport
+   ======================================================================== */
+
+/* Estado inicial: invisible y desplazado hacia abajo */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
+}
+
+/* Estado activo: visible y en su posición final */
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Variantes de dirección ── */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
+}
+
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
+}
+
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Scale reveal — para cards y skill items ── */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Stagger delays — aplicados via JS, pero definidos como fallback ── */
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+.reveal-delay-5 { transition-delay: 500ms; }
+.reveal-delay-6 { transition-delay: 600ms; }
+
+/* ========================================================================
+   HERO ANIMATIONS — Fade-in al cargar la página (300ms)
+   ======================================================================== */
+.hero-animate {
+  animation: slideUp 600ms ease-out forwards;
+  opacity: 0;
+}
+
+/* Stagger para elementos del hero */
+.hero-animate:nth-child(1) { animation-delay: 0ms; }
+.hero-animate:nth-child(2) { animation-delay: 100ms; }
+.hero-animate:nth-child(3) { animation-delay: 200ms; }
+.hero-animate:nth-child(4) { animation-delay: 300ms; }
+.hero-animate:nth-child(5) { animation-delay: 400ms; }
+.hero-animate:nth-child(6) { animation-delay: 500ms; }
+.hero-animate:nth-child(7) { animation-delay: 600ms; }
+
+/* ========================================================================
+   HOVER TRANSITIONS — Micro-interacciones
+   ======================================================================== */
+
+/* ── Underline animado para nav links ── */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width var(--transition-slow);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ========================================================================
+   PREFERENCIAS DE USUARIO — Respeta prefers-reduced-motion
+   ======================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

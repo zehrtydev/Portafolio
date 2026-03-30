@@ -1,0 +1,199 @@
+/**
+ * ============================================================================
+ * BASE STYLES — Portafolio Manuel Amado
+ * ============================================================================
+ * 
+ * CSS Reset, tipografía base, y estilos globales.
+ * Importa Google Fonts (Inter) y establece las fundaciones del diseño.
+ * ============================================================================
+ */
+
+/* ── Google Fonts: Inter ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ========================================================================
+   CSS RESET — Normaliza el comportamiento entre navegadores
+   ======================================================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Smooth scrolling global ── */
+html {
+  scroll-behavior: smooth;
+  /* Offset para compensar el navbar sticky al hacer anchor scroll */
+  scroll-padding-top: var(--navbar-height);
+}
+
+/* ── Body base ── */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+
+  /* Transición suave para el cambio de tema (dark/light) */
+  transition: background-color var(--transition-base),
+              color var(--transition-base);
+}
+
+/* ========================================================================
+   TIPOGRAFÍA — Headings y texto base
+   ======================================================================== */
+
+/* ── Headings ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--text-4xl);    /* 48px desktop */
+  letter-spacing: -0.02em;       /* Tightening para h1 */
+}
+
+h2 {
+  font-size: var(--text-3xl);    /* 36px desktop */
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--text-2xl);    /* 24px desktop */
+}
+
+/* ── Párrafos ── */
+p {
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+  max-width: 65ch; /* Legibilidad óptima */
+}
+
+/* ── Links ── */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+/* ── Imágenes ── */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Listas ── */
+ul, ol {
+  list-style: none;
+}
+
+/* ── Botones reset ── */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+  outline: none;
+}
+
+/* ── Focus visible — accesibilidad ── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ========================================================================
+   UTILIDADES GLOBALES
+   ======================================================================== */
+
+/* ── Contenedor principal ── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ── Título de sección (reutilizable) ── */
+.section-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+/* ── Subtítulo de sección ── */
+.section-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-2xl);
+}
+
+/* ── Acento de color en palabras ── */
+.text-accent {
+  color: var(--color-primary);
+}
+
+/* ── Sección base (padding vertical consistente) ── */
+.section {
+  padding: var(--space-4xl) 0;
+}
+
+/* ── Screen reader only (accesibilidad) ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Selector de texto con color de marca ── */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+}
+
+/* ── Scrollbar personalizado (Webkit) ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-600);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-500);
+}

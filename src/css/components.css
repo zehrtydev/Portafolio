@@ -1,0 +1,740 @@
+/**
+ * ============================================================================
+ * COMPONENTS — Portafolio Manuel Amado
+ * ============================================================================
+ * 
+ * Estilos de todos los componentes del portafolio organizados por sección:
+ * 1. Botones
+ * 2. Navbar
+ * 3. Hero
+ * 4. About (Sobre Mí)
+ * 5. Projects (Proyectos)
+ * 6. Skills (Habilidades)
+ * 7. Contact (Contacto)
+ * 8. Footer
+ * ============================================================================
+ */
+
+/* ========================================================================
+   1. BOTONES — Primary, Secondary, Outline, CTA
+   ======================================================================== */
+
+/* ── Botón base ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 12px 28px;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  line-height: 1;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: transform var(--transition-bounce),
+              box-shadow var(--transition-slow),
+              background-color var(--transition-base),
+              color var(--transition-base),
+              border-color var(--transition-base);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/* Hover genérico: elevar y sombra */
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Click feedback */
+.btn:active {
+  transform: translateY(-2px) scale(0.97);
+}
+
+/* ── Botón primario (relleno rojo) ── */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border: 2px solid var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: #FFFFFF;
+}
+
+/* ── Botón secundario (outline) ── */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ── Botón CTA de contacto ── */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 16px 32px;
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-bounce),
+              box-shadow var(--transition-slow),
+              background-color var(--transition-base),
+              border-color var(--transition-base);
+  text-decoration: none;
+}
+
+.btn-cta:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  background-color: var(--color-surface-2);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-cta:active {
+  transform: translateY(-2px) scale(0.97);
+}
+
+/* Emoji del CTA */
+.btn-cta .cta-icon {
+  font-size: 1.25rem;
+}
+
+/* ========================================================================
+   2. NAVBAR — Sticky, 64px, backdrop blur, hamburger mobile
+   ======================================================================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--navbar-height);
+  z-index: 1000;
+  background-color: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-divider);
+  transition: background-color var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+/* Navbar con scroll — más opaco */
+.navbar.scrolled {
+  background-color: rgba(10, 10, 10, 0.95);
+  box-shadow: var(--shadow-md);
+}
+
+/* Light mode navbar */
+[data-theme="light"] .navbar {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* ── Contenido del navbar ── */
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ── Logo ── */
+.navbar-logo {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: color var(--transition-base);
+}
+
+.navbar-logo .logo-accent {
+  color: var(--color-primary);
+}
+
+.navbar-logo:hover {
+  color: var(--color-primary);
+}
+
+/* ── Nav links (desktop) ── */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.navbar-links a {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+  position: relative;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: var(--color-text-primary);
+}
+
+/* ── Hamburger button (mobile) ── */
+.hamburger {
+  display: none; /* Visible solo en mobile via responsive.css */
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text-primary);
+  border-radius: 2px;
+  transition: transform var(--transition-slow),
+              opacity var(--transition-fast);
+}
+
+/* Hamburger abierto → X */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile menu overlay ── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(10, 10, 10, 0.98);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xl);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-slow);
+}
+
+[data-theme="light"] .mobile-menu {
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.mobile-menu.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu a {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.mobile-menu a:hover {
+  color: var(--color-primary);
+}
+
+/* ── Spacer para compensar navbar fixed ── */
+.navbar-spacer {
+  height: var(--navbar-height);
+}
+
+/* ========================================================================
+   3. HERO — 30-40vh, centrado, foto + texto + CTAs
+   ======================================================================== */
+
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Fondo sutil con patrón ── */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(196, 30, 58, 0.04) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-lg);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Foto de perfil circular ── */
+.hero-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-primary);
+  box-shadow: 0 0 40px rgba(196, 30, 58, 0.15);
+  flex-shrink: 0;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Nombre ── */
+.hero-name {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+/* ── Título/Rol ── */
+.hero-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+}
+
+/* ── Headline grande ── */
+.hero-headline {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  max-width: 700px;
+}
+
+.hero-headline .accent {
+  color: var(--color-primary);
+}
+
+/* ── Descripción ── */
+.hero-description {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  max-width: 550px;
+  line-height: var(--leading-relaxed);
+}
+
+/* ── Botones del Hero ── */
+.hero-ctas {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-sm);
+}
+
+/* ========================================================================
+   4. ABOUT — Sobre Mí, párrafos + bullet points
+   ======================================================================== */
+
+.about {
+  padding: var(--space-4xl) 0;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ── Texto principal ── */
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.about-text p {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: none;
+}
+
+/* ── Lista "Lo que aporto" ── */
+.about-highlights {
+  margin-top: var(--space-xl);
+}
+
+.about-highlights h3 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-md);
+  color: var(--color-text-primary);
+}
+
+.about-highlights-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm) var(--space-xl);
+}
+
+.about-highlights-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  padding: var(--space-xs) 0;
+}
+
+.about-highlights-list .check-icon {
+  color: var(--color-primary);
+  font-weight: var(--font-bold);
+  flex-shrink: 0;
+}
+
+/* ========================================================================
+   5. PROJECTS — Cards en grid 2 columnas
+   ======================================================================== */
+
+.projects {
+  padding: var(--space-4xl) 0;
+}
+
+/* ── Grid de proyectos ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+
+/* ── Card de proyecto ── */
+.project-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: transform var(--transition-bounce),
+              box-shadow var(--transition-slow),
+              border-color var(--transition-base);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(196, 30, 58, 0.2);
+}
+
+/* ── Imagen del proyecto ── */
+.project-image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background-color: var(--neutral-800);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.03);
+}
+
+/* ── Contenido del proyecto ── */
+.project-body {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ── Título ── */
+.project-title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+}
+
+/* ── Tagline ── */
+.project-tagline {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ── Secciones de detalle (Problema, Solución, Rol) ── */
+.project-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.project-detail-label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.project-detail-text {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+/* ── Tech tags ── */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.tech-tag {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  background-color: var(--neutral-700);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  transition: background-color var(--transition-base),
+              color var(--transition-base);
+}
+
+[data-theme="light"] .tech-tag {
+  background-color: var(--neutral-200);
+  color: var(--neutral-600);
+}
+
+.project-card:hover .tech-tag {
+  background-color: rgba(196, 30, 58, 0.1);
+  color: var(--color-primary);
+}
+
+/* ── Links del proyecto ── */
+.project-links {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.project-link:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Link de código privado deshabilitado */
+.project-link.disabled {
+  color: var(--color-text-muted);
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ========================================================================
+   6. SKILLS — 6 cards en grid 3x2
+   ======================================================================== */
+
+.skills {
+  padding: var(--space-4xl) 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+/* ── Skill card ── */
+.skill-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: center;
+  transition: transform var(--transition-bounce),
+              box-shadow var(--transition-slow),
+              border-color var(--transition-base);
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(196, 30, 58, 0.15);
+}
+
+.skill-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.skill-name {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.skill-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+/* ========================================================================
+   7. CONTACT — CTAs con hover
+   ======================================================================== */
+
+.contact {
+  padding: var(--space-4xl) 0;
+}
+
+.contact-content {
+  text-align: center;
+}
+
+/* ── Grid de CTAs ── */
+.contact-ctas {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-top: var(--space-xl);
+}
+
+/* ========================================================================
+   8. FOOTER — 80-100px, copyright + links + dark toggle
+   ======================================================================== */
+
+.footer {
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--color-divider);
+  background-color: var(--color-surface);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+/* ── Copyright ── */
+.footer-copyright {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ── Links del footer ── */
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+/* ── Toggle de tema ── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  transition: background-color var(--transition-base),
+              border-color var(--transition-base),
+              color var(--transition-base);
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.theme-toggle-icon {
+  font-size: 1.1rem;
+}

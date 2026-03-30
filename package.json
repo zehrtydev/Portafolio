@@ -1,0 +1,14 @@
+{
+  "name": "portafolio-manuel-amado",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Portafolio profesional de Manuel Amado — Desarrollador Frontend & Especialista en UI/UX",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.3.1"
+  }
+}

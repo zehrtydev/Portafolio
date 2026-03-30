@@ -1,0 +1,182 @@
+/**
+ * ============================================================================
+ * RESPONSIVE — Portafolio Manuel Amado
+ * ============================================================================
+ * 
+ * Media queries para 3 breakpoints:
+ *   - Mobile:  < 640px
+ *   - Tablet:  640px - 1024px
+ *   - Desktop: > 1024px (estilos por defecto)
+ * 
+ * Mobile-first no se usa aquí porque el diseño base es desktop.
+ * Los overrides van de mayor a menor resolución.
+ * ============================================================================
+ */
+
+/* ========================================================================
+   TABLET (640px - 1024px) — Ajustes sutiles
+   ======================================================================== */
+@media (max-width: 1024px) {
+  /* ── Tipografía -10% ── */
+  h1 { font-size: 2.5rem; }       /* 40px (vs 48px) */
+  h2 { font-size: 2rem; }         /* 32px (vs 36px) */
+  h3 { font-size: 1.375rem; }     /* 22px (vs 24px) */
+
+  /* ── Contenedor ── */
+  :root {
+    --container-padding: var(--space-lg); /* 24px */
+  }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero-headline {
+    font-size: 2.5rem;
+  }
+
+  /* ── Projects: 2 columnas se mantienen ── */
+  .projects-grid {
+    gap: var(--space-md);
+  }
+
+  /* ── Skills: 2 columnas ── */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================================================
+   MOBILE (< 640px) — Layout vertical, hamburger, reducido
+   ======================================================================== */
+@media (max-width: 640px) {
+  /* ── Tipografía -20% ── */
+  h1 { font-size: 2rem; }         /* 32px */
+  h2 { font-size: 1.75rem; }      /* 28px */
+  h3 { font-size: 1.25rem; }      /* 20px */
+
+  /* ── Contenedor padding reducido ── */
+  :root {
+    --container-padding: var(--space-md); /* 16px */
+  }
+
+  /* ── Navigation: mostrar hamburger, ocultar links ── */
+  .navbar-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* ── Hero vertical stack ── */
+  .hero {
+    min-height: auto;
+    padding: var(--space-2xl) 0;
+  }
+
+  .hero-content {
+    gap: var(--space-md);
+  }
+
+  .hero-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero-headline {
+    font-size: 1.75rem;
+  }
+
+  .hero-description {
+    font-size: var(--text-base);
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-sm);
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ── About ── */
+  .about-text p {
+    font-size: var(--text-base);
+  }
+
+  .about-highlights-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Projects: 1 columna ── */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-body {
+    padding: var(--space-md);
+  }
+
+  /* ── Skills: 1 columna ── */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  /* ── Contact ── */
+  .contact-ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-cta {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  /* ── Footer ── */
+  .footer-links {
+    gap: var(--space-md);
+  }
+
+  /* ── Section spacing reducido ── */
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+
+  .about,
+  .projects,
+  .skills,
+  .contact {
+    padding: var(--space-2xl) 0;
+  }
+}
+
+/* ========================================================================
+   EXTRA SMALL (< 380px) — Ajustes para pantallas muy pequeñas
+   ======================================================================== */
+@media (max-width: 380px) {
+  .hero-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-headline {
+    font-size: 1.5rem;
+  }
+
+  .project-tech {
+    gap: var(--space-xs);
+  }
+
+  .tech-tag {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+}
