@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <!-- ====================================================================
+       META TAGS — SEO, Open Graph, Twitter Cards
+       ==================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manuel Amado — Desarrollador Frontend especializado en UI/UX. Construyo interfaces escalables y rápidas que resuelven problemas reales.">
+  <meta name="keywords" content="frontend developer, ui ux designer, react, javascript, web development, colombia">
+  <meta name="author" content="Manuel Amado">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zehrty-dev.com">
+  <meta property="og:title" content="Manuel Amado — Desarrollador Frontend & Especialista en UI/UX">
+  <meta property="og:description" content="Construyo interfaces escalables y rápidas que resuelven problemas reales y conectan con los usuarios.">
+  <meta property="og:image" content="https://zehrty-dev.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://zehrty-dev.com">
+  <meta property="twitter:title" content="Manuel Amado — Frontend Developer">
+  <meta property="twitter:description" content="Construyo interfaces escalables y rápidas.">
+  <meta property="twitter:image" content="https://zehrty-dev.com/og-image.jpg">
+
+  <title>Manuel Amado — Desarrollador Frontend & Especialista en UI/UX</title>
+
+  <!-- ====================================================================
+       FONTS — Preload para evitar FOUT (Flash of Unstyled Text)
+       ==================================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- ====================================================================
+       STRUCTURED DATA — JSON-LD para motores de búsqueda
+       ==================================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Manuel Amado",
+    "url": "https://zehrty-dev.com",
+    "email": "zehrty.dev@gmail.com",
+    "jobTitle": "Frontend Developer",
+    "image": "https://zehrty-dev.com/images/profile.png",
+    "description": "Desarrollador Frontend especializado en UI/UX. Construyo interfaces escalables y rápidas.",
+    "sameAs": [
+      "https://github.com/zehrtydev"
+    ],
+    "knowsAbout": [
+      "Frontend Development",
+      "UI/UX Design",
+      "React",
+      "JavaScript",
+      "CSS",
+      "Web Performance"
+    ]
+  }
+  </script>
+
+  <!-- ====================================================================
+       DARK MODE INIT — Script inline para evitar flash de tema incorrecto.
+       Se ejecuta ANTES del render para setear data-theme de inmediato.
+       ==================================================================== -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
+  <!-- ====================================================================
+       ENTRY POINT — Vite inyecta CSS y JS automáticamente desde main.js
+       ==================================================================== -->
+  <script type="module" crossorigin src="/assets/index-46NcGcjd.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CBvEUQf7.css">
+</head>
+
+<body>
+
+  <!-- ==================================================================
+       1. NAVBAR — Sticky, 64px, backdrop blur, hamburger mobile
+       ================================================================== -->
+  <nav class="navbar" id="navbar" aria-label="Navegación principal">
+    <div class="navbar-content">
+      <!-- Logo -->
+      <a href="#inicio" class="navbar-logo" aria-label="Ir al inicio">
+        <span class="logo-accent">M</span>anuel
+      </a>
+
+      <!-- Links de navegación (desktop) -->
+      <div class="navbar-links" id="nav-links">
+        <a href="#inicio" class="nav-link active">Inicio</a>
+        <a href="#proyectos" class="nav-link">Proyectos</a>
+        <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+        <a href="#habilidades" class="nav-link">Habilidades</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </div>
+
+      <!-- Hamburger button (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="#inicio" class="nav-link">Inicio</a>
+    <a href="#proyectos" class="nav-link">Proyectos</a>
+    <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+    <a href="#habilidades" class="nav-link">Habilidades</a>
+    <a href="#contacto" class="nav-link">Contacto</a>
+  </div>
+
+  <!-- Spacer para compensar el navbar fixed -->
+  <div class="navbar-spacer"></div>
+
+  <!-- ==================================================================
+       2. HERO — Foto circular + nombre + título + headline + CTAs
+       ================================================================== -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-content">
+        <!-- Foto de perfil circular -->
+        <div class="hero-photo hero-animate">
+          <img 
+            src="/images/profile.png" 
+            alt="Manuel Amado — Desarrollador Frontend" 
+            width="200" 
+            height="200"
+          >
+        </div>
+
+        <!-- Nombre -->
+        <p class="hero-name hero-animate">Manuel Amado</p>
+
+        <!-- Título/Rol -->
+        <p class="hero-title hero-animate">Desarrollador Frontend & Especialista en UI/UX</p>
+
+        <!-- Headline principal -->
+        <h1 class="hero-headline hero-animate">
+          Transformo ideas en experiencias de <span class="accent">alto impacto</span>
+        </h1>
+
+        <!-- Descripción -->
+        <p class="hero-description hero-animate">
+          Soy Manuel Amado, Desarrollador Frontend enfocado en crear interfaces 
+          escalables y rápidas que resuelven problemas reales y conectan con 
+          el usuario.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-ctas hero-animate">
+          <a href="#proyectos" class="btn btn-primary">Explorar mi trabajo</a>
+          <a href="#contacto" class="btn btn-secondary">Hablemos de tu proyecto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       3. SOBRE MÍ — Filosofía y lo que aporta
+       ================================================================== -->
+  <section class="about section" id="sobre-mi">
+    <div class="container">
+      <!-- Título de sección -->
+      <h2 class="section-title reveal">Detrás del código</h2>
+
+      <div class="about-content">
+        <!-- Párrafos principales -->
+        <div class="about-text reveal">
+          <p>
+            Me especializo en construir puentes entre el diseño visual y la ingeniería 
+            de software. Mi objetivo va más allá de escribir código operativamente; 
+            busco entregar soluciones tecnológicas tangibles que resuelvan problemas 
+            de negocio y enriquezcan la vida de las personas.
+          </p>
+          <p>
+            Trabajo con tecnologías web nativas bajo la premisa de que una excelente 
+            UI/UX es el motor de retención en cualquier producto digital. Me distingo 
+            por mi atención al micro-detalle, elaborando código escalable, libre de 
+            sobreingeniería, y adoptando una postura ágil frente a nuevos retos de 
+            arquitectura frontend.
+          </p>
+        </div>
+
+        <!-- Lo que aporto -->
+        <div class="about-highlights reveal">
+          <h3>Lo que aporto</h3>
+          <ul class="about-highlights-list">
+            <li>
+              <span class="check-icon">✓</span>
+              Interfaz pulida e intuitiva
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              Atención al detalle (micro-interacciones, animaciones)
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              Código escalable y mantenible
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              Performance optimizado
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              Mentalidad orientada a usuario
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       4. PROYECTOS — 2 Casos de Estudio (Petrodesk + Tecnifact)
+       ================================================================== -->
+  <section class="projects section" id="proyectos">
+    <div class="container">
+      <!-- Header de sección -->
+      <h2 class="section-title reveal">Casos de Estudio</h2>
+      <p class="section-subtitle reveal">
+        Proyectos destacados donde diseño, código y estrategia se unen 
+        para generar valor.
+      </p>
+
+      <!-- Grid de proyectos -->
+      <div class="projects-grid">
+
+        <!-- ── PROYECTO 1: PETRODESK ── -->
+        <article class="project-card reveal" id="project-petrodesk">
+          <!-- Imagen del proyecto -->
+          <div class="project-image">
+            <img 
+              src="/images/petrodesk-screenshot.png" 
+              alt="Petrodesk — Dashboard B2B para gestión de proyectos en tiempo real" 
+              loading="lazy"
+              width="1200"
+              height="800"
+            >
+          </div>
+
+          <!-- Contenido -->
+          <div class="project-body">
+            <h3 class="project-title">Petrodesk — Dashboard B2B Integral</h3>
+            <p class="project-tagline">Plataforma centralizada para gestión de proyectos en tiempo real</p>
+
+            <!-- Problema -->
+            <div class="project-detail">
+              <span class="project-detail-label">Problema</span>
+              <p class="project-detail-text">
+                Las empresas del sector petrolero pierden tiempo en silos de información, 
+                sin visibilidad real en proyectos, recursos e inventarios. Los reportes 
+                toman horas y la toma de decisiones se ralentiza.
+              </p>
+            </div>
+
+            <!-- Solución -->
+            <div class="project-detail">
+              <span class="project-detail-label">Solución</span>
+              <p class="project-detail-text">
+                Plataforma centralizada que consolida KPIs de proyectos en tiempo real, 
+                con gráficos dinámicos, filtros avanzados y exportación de reportes 
+                automatizada. Transforma datos en insights accionables.
+              </p>
+            </div>
+
+            <!-- Rol -->
+            <div class="project-detail">
+              <span class="project-detail-label">Mi Rol</span>
+              <p class="project-detail-text">
+                Arquitectura frontend | Diseño de componentes reutilizables | 
+                Integración con APIs REST | Optimización de performance en 
+                dashboards complejos | Testing de usabilidad
+              </p>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="project-tech">
+              <span class="tech-tag">React 18</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Chart.js</span>
+              <span class="tech-tag">React Query</span>
+              <span class="tech-tag">Axios</span>
+            </div>
+
+            <!-- Links -->
+            <div class="project-links">
+              <a 
+                href="https://petrodesk-web.vercel.app/" 
+                class="project-link" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Ver Petrodesk en vivo"
+              >
+                ↗ Ver en vivo
+              </a>
+              <span class="project-link disabled" aria-label="Código privado">
+                🔒 Código Privado
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── PROYECTO 2: TECNIFACT ── -->
+        <article class="project-card reveal" id="project-tecnifact">
+          <!-- Imagen del proyecto -->
+          <div class="project-image">
+            <img 
+              src="/images/tecnifact-screenshot.png" 
+              alt="Tecnifact — Plataforma intuitiva para generar facturas profesionales" 
+              loading="lazy"
+              width="1200"
+              height="800"
+            >
+          </div>
+
+          <!-- Contenido -->
+          <div class="project-body">
+            <h3 class="project-title">Tecnifact — Factura en Minutos</h3>
+            <p class="project-tagline">Plataforma intuitiva para generar facturas profesionales al instante</p>
+
+            <!-- Problema -->
+            <div class="project-detail">
+              <span class="project-detail-label">Problema</span>
+              <p class="project-detail-text">
+                Pequeños emprendedores y freelancers pierden tiempo en la generación 
+                manual de facturas, afectando su flujo de trabajo y satisfacción del 
+                cliente. Además, deben cumplir con regulaciones tributarias complejas.
+              </p>
+            </div>
+
+            <!-- Solución -->
+            <div class="project-detail">
+              <span class="project-detail-label">Solución</span>
+              <p class="project-detail-text">
+                Plataforma intuitiva que automatiza la creación de facturas profesionales 
+                en segundos, con plantillas personalizables, cumplimiento tributario 
+                incorporado y envío directo por email. Reduce fricción al 0%.
+              </p>
+            </div>
+
+            <!-- Rol -->
+            <div class="project-detail">
+              <span class="project-detail-label">Mi Rol</span>
+              <p class="project-detail-text">
+                UI/UX Design | Desarrollo de interfaz de usuario | Formularios dinámicos | 
+                Integración con backend | Testing de usabilidad | Optimización de 
+                conversión en onboarding
+              </p>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">CSS Grid & Flexbox</span>
+              <span class="tech-tag">Formik</span>
+              <span class="tech-tag">EmailJS</span>
+              <span class="tech-tag">Stripe API</span>
+            </div>
+
+            <!-- Links -->
+            <div class="project-links">
+              <a 
+                href="https://tecnifact-web.vercel.app/" 
+                class="project-link" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Ver Tecnifact en vivo"
+              >
+                ↗ Ver en vivo
+              </a>
+              <span class="project-link disabled" aria-label="Código privado">
+                🔒 Código Privado
+              </span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       5. HABILIDADES — 6 skill cards en grid
+       ================================================================== -->
+  <section class="skills section" id="habilidades">
+    <div class="container">
+      <h2 class="section-title reveal">Arsenal Tecnológico</h2>
+
+      <div class="skills-grid">
+        <!-- Skill 1: HTML5 -->
+        <div class="skill-card reveal-scale" id="skill-html">
+          <span class="skill-icon" aria-hidden="true">🏗️</span>
+          <h3 class="skill-name">HTML5</h3>
+          <p class="skill-desc">Semántica correcta, accesibilidad WCAG</p>
+        </div>
+
+        <!-- Skill 2: CSS Avanzado -->
+        <div class="skill-card reveal-scale" id="skill-css">
+          <span class="skill-icon" aria-hidden="true">🎨</span>
+          <h3 class="skill-name">CSS Avanzado</h3>
+          <p class="skill-desc">Grid, Flexbox, animaciones fluidas</p>
+        </div>
+
+        <!-- Skill 3: JavaScript -->
+        <div class="skill-card reveal-scale" id="skill-js">
+          <span class="skill-icon" aria-hidden="true">⚡</span>
+          <h3 class="skill-name">JavaScript (ES6+)</h3>
+          <p class="skill-desc">Vanilla, async/await, DOM manipulation</p>
+        </div>
+
+        <!-- Skill 4: UI/UX -->
+        <div class="skill-card reveal-scale" id="skill-uiux">
+          <span class="skill-icon" aria-hidden="true">🎭</span>
+          <h3 class="skill-name">UI/UX & Design</h3>
+          <p class="skill-desc">Micro-interacciones, design systems</p>
+        </div>
+
+        <!-- Skill 5: Performance -->
+        <div class="skill-card reveal-scale" id="skill-performance">
+          <span class="skill-icon" aria-hidden="true">⚙️</span>
+          <h3 class="skill-name">Performance Web</h3>
+          <p class="skill-desc">Lighthouse 90+, Core Web Vitals</p>
+        </div>
+
+        <!-- Skill 6: Herramientas -->
+        <div class="skill-card reveal-scale" id="skill-tools">
+          <span class="skill-icon" aria-hidden="true">📦</span>
+          <h3 class="skill-name">Herramientas</h3>
+          <p class="skill-desc">React, Vite, Git, npm/yarn</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       6. CONTACTO — Título + Subtítulo + 3 CTAs
+       ================================================================== -->
+  <section class="contact section" id="contacto">
+    <div class="container">
+      <div class="contact-content">
+        <h2 class="section-title reveal">¿Listo para escalar tu producto?</h2>
+        <p class="section-subtitle reveal">
+          Si buscas fortalecer tu equipo de ingeniería o tienes un desafío técnico 
+          que requiera una interfaz impecable, mi bandeja de entrada está abierta.
+        </p>
+
+        <!-- CTAs de contacto -->
+        <div class="contact-ctas">
+          <!-- WhatsApp -->
+          <a 
+            href="https://wa.me/573108880230?text=Hola%20Manuel%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20hablar%20contigo." 
+            class="btn-cta reveal"
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="Chatear por WhatsApp con Manuel"
+            id="cta-whatsapp"
+          >
+            <span class="cta-icon" aria-hidden="true">💬</span>
+            Chatear por WhatsApp
+          </a>
+
+          <!-- Email -->
+          <a 
+            href="mailto:zehrty.dev@gmail.com" 
+            class="btn-cta reveal"
+            aria-label="Enviar correo a Manuel"
+            id="cta-email"
+          >
+            <span class="cta-icon" aria-hidden="true">✉️</span>
+            Enviar un correo
+          </a>
+
+          <!-- GitHub -->
+          <a 
+            href="https://github.com/zehrtydev" 
+            class="btn-cta reveal"
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="Ver perfil de GitHub de Manuel"
+            id="cta-github"
+          >
+            <span class="cta-icon" aria-hidden="true">🔗</span>
+            Analizar perfil GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       7. FOOTER — Copyright + links + dark mode toggle
+       ================================================================== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Links de navegación rápida -->
+        <div class="footer-links">
+          <a href="#inicio">Inicio</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#sobre-mi">Sobre Mí</a>
+          <a href="#habilidades">Habilidades</a>
+          <a href="#contacto">Contacto</a>
+          <a href="https://github.com/zehrtydev" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="mailto:zehrty.dev@gmail.com">Email</a>
+        </div>
+
+        <!-- Toggle de tema (dark/light mode) -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema (claro/oscuro)">
+          <span class="theme-toggle-icon" id="theme-toggle-icon">☀️</span>
+          <span>Cambiar tema</span>
+        </button>
+
+        <!-- Copyright -->
+        <p class="footer-copyright">
+          © 2026 Manuel Amado. Diseñado con propósito, desarrollado con precisión.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

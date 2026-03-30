@@ -1,0 +1,7 @@
+# robots.txt — Portafolio Manuel Amado
+# Permite acceso completo a todos los crawlers
+
+User-agent: *
+Allow: /
+
+Sitemap: https://zehrty-dev.com/sitemap.xml
