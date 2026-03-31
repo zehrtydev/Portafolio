@@ -30,6 +30,19 @@
   <title>Manuel Amado — Desarrollador Frontend & Especialista en UI/UX</title>
 
   <!-- ====================================================================
+       SECURITY HEADERS — Content-Security-Policy
+       ==================================================================== -->
+  <meta http-equiv="Content-Security-Policy" 
+        content="default-src 'self'; 
+                 script-src 'self' 'unsafe-inline'; 
+                 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+                 font-src https://fonts.gstatic.com; 
+                 img-src 'self' data:;
+                 connect-src 'self';
+                 frame-ancestors 'none';
+                 form-action 'self';">
+
+  <!-- ====================================================================
        FONTS — Preload para evitar FOUT (Flash of Unstyled Text)
        ==================================================================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

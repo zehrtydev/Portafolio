@@ -1,7 +1,15 @@
 # robots.txt — Portafolio Manuel Amado
-# Permite acceso completo a todos los crawlers
+# Seguridad: Bloquear acceso a archivos internos
 
 User-agent: *
 Allow: /
+
+# Bloquear acceso a archivos internos
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /vite.config.js
 
 Sitemap: https://zehrty-dev.com/sitemap.xml
